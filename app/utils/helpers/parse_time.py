@@ -44,10 +44,8 @@ def parse_duration_to_timedelta(
         "seconds": "seconds",
     }
 
-    # Remove all whitespace for easier parsing
     clean_duration = duration.replace(" ", "").lower()
 
-    # Check if it matches the general pattern
     if not re.fullmatch(r"(\d+[a-z]+)+", clean_duration):
         return bot.embed_factory.error_embed(_("Invalid duration format"))
 
@@ -64,4 +62,7 @@ def parse_duration_to_timedelta(
     if not duration_kwargs:
         return bot.embed_factory.error_embed(_("Invalid duration format"))
 
-    return pendulum.duration(**duration_kwargs)
+    parsed_duration = pendulum.duration(**duration_kwargs)
+    if parsed_duration.total_seconds() == 0:
+        return bot.embed_factory.error_embed(_("Duration must be greater than 0"))
+    return parsed_duration
