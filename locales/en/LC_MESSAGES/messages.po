@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: carbon-bot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-05-26 19:35+0530\n"
+"POT-Creation-Date: 2026-06-07 04:28+0530\n"
 "PO-Revision-Date: 2026-03-05 14:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
@@ -101,8 +101,8 @@ msgid "Users"
 msgstr "Users"
 
 #: app/services/commands/general.py:45
-msgid "Uptime"
-msgstr "Uptime"
+msgid "Last Restart"
+msgstr "Last Restart"
 
 #: app/services/commands/general.py:75
 msgid "Command not found."
@@ -436,3 +436,6 @@ msgstr[1] ""
 
 #~ msgid "Bots cannot be targeted with this action."
 #~ msgstr "Bots cannot be targeted with this action."
+
+#~ msgid "Uptime"
+#~ msgstr "Uptime"

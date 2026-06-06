@@ -42,7 +42,7 @@ class GeneralService:
 
         embed.add_field_i18n(_("Servers"), str(server_count))
         embed.add_field_i18n(_("Users"), str(user_count))
-        embed.add_field_i18n(_("Uptime"), uptime)
+        embed.add_field_i18n(_("Last Restart"), f"`{uptime}`")
 
         await interaction.response.send_message(embed=embed)
         return
