@@ -12,15 +12,19 @@ class Management(commands.Cog):
         self.bot = bot
         self.service = ManagementService(self.bot)
 
-    @app_commands.command(
+    purge = app_commands.Group(
         name="purge", description=app_commands.locale_str(_("Delete messages in bulk."))
+    )
+
+    @purge.command(
+        name="any", description=app_commands.locale_str(_("Delete any message type."))
     )
     @app_commands.checks.has_permissions(manage_messages=True)
     @app_commands.checks.bot_has_permissions(manage_messages=True)
     @app_commands.describe(
         count=app_commands.locale_str(_("The max number of messages to get deleted."))
     )
-    async def purge(self, interaction: discord.Interaction, count: int) -> None:
+    async def _purge(self, interaction: discord.Interaction, count: int) -> None:
         await self.service._purge(interaction, count)
 
     @app_commands.command(
