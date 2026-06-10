@@ -4,6 +4,7 @@ from app.bot import Carbon
 from app.db.services.modsettings_service import ModSettingsService
 from app.db.session import session_maker
 from app.i18n.marker import _
+from app.utils.checks.purge_checks import is_author_bot
 
 
 class ManagementService:
@@ -15,6 +16,15 @@ class ManagementService:
         await interaction.response.defer(ephemeral=True)
         deleted = await interaction.channel.purge(limit=count)
 
+        embed = self.bot.embed_factory.success_embed(
+            _("Deleted %(count)s messages."), count=len(deleted)
+        )
+        await interaction.followup.send(embed=embed, ephemeral=True)
+
+    async def _purge_bots(self, interaction: discord.Interaction, count: int) -> None:
+        assert isinstance(interaction.channel, discord.TextChannel)
+        await interaction.response.defer(ephemeral=True)
+        deleted = await interaction.channel.purge(limit=count, check=is_author_bot)
         embed = self.bot.embed_factory.success_embed(
             _("Deleted %(count)s messages."), count=len(deleted)
         )

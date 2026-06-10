@@ -27,6 +27,18 @@ class Management(commands.Cog):
     async def _purge(self, interaction: discord.Interaction, count: int) -> None:
         await self.service._purge(interaction, count)
 
+    @purge.command(
+        name="bots",
+        description=app_commands.locale_str(_("Delete messages sent by bots.")),
+    )
+    @app_commands.checks.has_permissions(manage_messages=True)
+    @app_commands.checks.bot_has_permissions(manage_messages=True)
+    @app_commands.describe(
+        count=app_commands.locale_str(_("The max number of messages to get deleted."))
+    )
+    async def _purge_bots(self, interaction: discord.Interaction, count: int) -> None:
+        await self.service._purge_bots(interaction, count)
+
     @app_commands.command(
         name="set-modlog-channel",
         description=app_commands.locale_str(
