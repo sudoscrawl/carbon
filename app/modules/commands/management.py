@@ -39,6 +39,30 @@ class Management(commands.Cog):
     async def _purge_bots(self, interaction: discord.Interaction, count: int) -> None:
         await self.service._purge_bots(interaction, count)
 
+    @purge.command(
+        name="humans",
+        description=app_commands.locale_str(_("Delete messages sent by humans.")),
+    )
+    @app_commands.checks.has_permissions(manage_messages=True)
+    @app_commands.checks.bot_has_permissions(manage_messages=True)
+    @app_commands.describe(
+        count=app_commands.locale_str(_("The max number of messages to get deleted."))
+    )
+    async def _purge_humans(self, interaction: discord.Interaction, count: int) -> None:
+        await self.service._purge_humans(interaction, count)
+
+    @purge.command(
+        name="embeds",
+        description=app_commands.locale_str(_("Delete messages that contain embeds.")),
+    )
+    @app_commands.checks.has_permissions(manage_messages=True)
+    @app_commands.checks.bot_has_permissions(manage_messages=True)
+    @app_commands.describe(
+        count=app_commands.locale_str(_("The max number of messages to get deleted."))
+    )
+    async def _purge_embeds(self, interaction: discord.Interaction, count: int) -> None:
+        await self.service._purge_embeds(interaction, count)
+
     @app_commands.command(
         name="set-modlog-channel",
         description=app_commands.locale_str(

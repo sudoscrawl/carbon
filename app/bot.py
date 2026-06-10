@@ -52,6 +52,7 @@ class Carbon(commands.Bot):
         intents = discord.Intents.default()
         intents.guilds = True
         intents.members = True
+        intents.message_content = True
 
         discord.VoiceClient.warn_nacl = False
         discord.VoiceClient.warn_dave = False
