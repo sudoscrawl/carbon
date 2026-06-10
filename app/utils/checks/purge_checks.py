@@ -1,13 +1,21 @@
 import discord
 
 
-def is_author_bot(message: discord.Message):
+def is_author_bot(message: discord.Message) -> bool:
     return message.author.bot
 
 
-def is_author_human(message: discord.Message):
+def is_author_human(message: discord.Message) -> bool:
     return not message.author.bot
 
 
-def does_message_contain_embed(message: discord.Message):
+def does_message_contain_embed(message: discord.Message) -> bool:
     return len(message.embeds) != 0
+
+
+def is_image_attached(message: discord.Message) -> bool:
+    if message.attachments:
+        for i in message.attachments:
+            if i.content_type and i.content_type.startswith("image/"):
+                return True
+    return False

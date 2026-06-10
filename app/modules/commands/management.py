@@ -63,6 +63,18 @@ class Management(commands.Cog):
     async def _purge_embeds(self, interaction: discord.Interaction, count: int) -> None:
         await self.service._purge_embeds(interaction, count)
 
+    @purge.command(
+        name="images",
+        description=app_commands.locale_str(_("Delete messages that contain images.")),
+    )
+    @app_commands.checks.has_permissions(manage_messages=True)
+    @app_commands.checks.bot_has_permissions(manage_messages=True)
+    @app_commands.describe(
+        count=app_commands.locale_str(_("The max number of messages to get deleted."))
+    )
+    async def _purge_images(self, interaction: discord.Interaction, count: int) -> None:
+        await self.service._purge_images(interaction, count)
+
     @app_commands.command(
         name="set-modlog-channel",
         description=app_commands.locale_str(

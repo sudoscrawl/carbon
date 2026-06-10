@@ -55,6 +55,17 @@ class ManagementService:
         )
         await interaction.followup.send(embed=embed, ephemeral=True)
 
+    async def _purge_images(self, interaction: discord.Interaction, count: int) -> None:
+        assert isinstance(interaction.channel, discord.TextChannel)
+        await interaction.response.defer(ephemeral=True)
+        deleted = await interaction.channel.purge(
+            limit=count, check=purge_checks.is_image_attached
+        )
+        embed = self.bot.embed_factory.success_embed(
+            _("Deleted %(count)s messages."), count=len(deleted)
+        )
+        await interaction.followup.send(embed=embed, ephemeral=True)
+
     async def _set_modlog_channel(
         self, interaction: discord.Interaction, channel: discord.TextChannel
     ) -> None:
