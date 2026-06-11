@@ -75,6 +75,20 @@ class Management(commands.Cog):
     async def _purge_images(self, interaction: discord.Interaction, count: int) -> None:
         await self.service._purge_images(interaction, count)
 
+    @purge.command(
+        name="invites",
+        description=app_commands.locale_str(
+            _("Delete messages that contain invite links.")
+        ),
+    )
+    @app_commands.checks.has_permissions(manage_messages=True)
+    @app_commands.checks.bot_has_permissions(manage_messages=True)
+    @app_commands.describe(
+        count=app_commands.locale_str(_("The max number of messages to get deleted."))
+    )
+    async def _purge_invite(self, interaction: discord.Interaction, count: int) -> None:
+        await self.service._purge_invites(interaction, count)
+
     @app_commands.command(
         name="set-modlog-channel",
         description=app_commands.locale_str(

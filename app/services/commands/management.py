@@ -66,6 +66,19 @@ class ManagementService:
         )
         await interaction.followup.send(embed=embed, ephemeral=True)
 
+    async def _purge_invites(
+        self, interaction: discord.Interaction, count: int
+    ) -> None:
+        assert isinstance(interaction.channel, discord.TextChannel)
+        await interaction.response.defer()
+        deleted = await interaction.channel.purge(
+            limit=count, check=purge_checks.is_invite_included
+        )
+        embed = self.bot.embed_factory.success_embed(
+            _("Deleted %(count)s messages."), count=len(deleted)
+        )
+        await interaction.followup.send(embed=embed, ephemeral=True)
+
     async def _set_modlog_channel(
         self, interaction: discord.Interaction, channel: discord.TextChannel
     ) -> None:
