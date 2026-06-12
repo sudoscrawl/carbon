@@ -25,44 +25,71 @@ class ManagementService:
     async def _purge_bots(self, interaction: discord.Interaction, count: int) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
-        deleted = await interaction.channel.purge(
-            limit=count, check=purge_checks.is_author_bot
-        )
+        deleted = 0
+
+        async for message in interaction.channel.history(limit=200):
+            if purge_checks.is_author_bot(message):
+                await message.delete()
+                deleted += 1
+
+                if deleted >= count:
+                    break
+
         embed = self.bot.embed_factory.success_embed(
-            _("Deleted %(count)s messages."), count=len(deleted)
+            _("Deleted %(count)s messages."), count=deleted
         )
         await interaction.followup.send(embed=embed, ephemeral=True)
 
     async def _purge_humans(self, interaction: discord.Interaction, count: int) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
-        deleted = await interaction.channel.purge(
-            limit=count, check=purge_checks.is_author_human
-        )
+        deleted = 0
+
+        async for message in interaction.channel.history(limit=200):
+            if purge_checks.is_author_human(message):
+                await message.delete()
+                deleted += 1
+
+                if deleted >= count:
+                    break
+
         embed = self.bot.embed_factory.success_embed(
-            _("Deleted %(count)s messages."), count=len(deleted)
+            _("Deleted %(count)s messages."), count=deleted
         )
         await interaction.followup.send(embed=embed, ephemeral=True)
 
     async def _purge_embeds(self, interaction: discord.Interaction, count: int) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
-        deleted = await interaction.channel.purge(
-            limit=count, check=purge_checks.does_message_contain_embed
-        )
+        deleted = 0
+
+        async for message in interaction.channel.history(limit=200):
+            if purge_checks.does_message_contain_embed(message):
+                await message.delete()
+                deleted += 1
+
+                if deleted >= count:
+                    break
+
         embed = self.bot.embed_factory.success_embed(
-            _("Deleted %(count)s messages."), count=len(deleted)
+            _("Deleted %(count)s messages."), count=deleted
         )
         await interaction.followup.send(embed=embed, ephemeral=True)
 
     async def _purge_images(self, interaction: discord.Interaction, count: int) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
-        deleted = await interaction.channel.purge(
-            limit=count, check=purge_checks.is_image_attached
-        )
+        deleted = 0
+        async for message in interaction.channel.history(limit=200):
+            if purge_checks.is_image_attached(message):
+                await message.delete()
+                deleted += 1
+
+                if deleted >= count:
+                    break
+
         embed = self.bot.embed_factory.success_embed(
-            _("Deleted %(count)s messages."), count=len(deleted)
+            _("Deleted %(count)s messages."), count=deleted
         )
         await interaction.followup.send(embed=embed, ephemeral=True)
 
@@ -70,12 +97,18 @@ class ManagementService:
         self, interaction: discord.Interaction, count: int
     ) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
-        await interaction.response.defer()
-        deleted = await interaction.channel.purge(
-            limit=count, check=purge_checks.is_invite_included
-        )
+        await interaction.response.defer(ephemeral=True)
+        deleted = 0
+        async for message in interaction.channel.history(limit=200):
+            if purge_checks.is_invite_included(message):
+                await message.delete()
+                deleted += 1
+
+                if deleted >= count:
+                    break
+
         embed = self.bot.embed_factory.success_embed(
-            _("Deleted %(count)s messages."), count=len(deleted)
+            _("Deleted %(count)s messages."), count=deleted
         )
         await interaction.followup.send(embed=embed, ephemeral=True)
 

@@ -23,8 +23,13 @@ def is_image_attached(message: discord.Message) -> bool:
     return False
 
 
-def is_invite_included(message: discord.Message) -> bool:
+def contains_invite(content: str) -> bool:
     invite_pattern = re.compile(
         r"(?:https?://)?(?:www\.)?discord(?:app)?\.(?:com|gg)/(?:invite/)?[a-zA-Z0-9_-]+"
     )
-    return bool(invite_pattern.search(message.content))
+    result = bool(invite_pattern.search(content))
+    return result
+
+
+def is_invite_included(message: discord.Message) -> bool:
+    return contains_invite(message.content)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-07 04:28+0530\n"
+"POT-Creation-Date: 2026-06-12 08:13+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,15 +37,41 @@ msgstr ""
 msgid "Delete messages in bulk."
 msgstr ""
 
-#: app/modules/commands/management.py:21
+#: app/modules/commands/management.py:20
+msgid "Delete any message type."
+msgstr ""
+
+#: app/modules/commands/management.py:25 app/modules/commands/management.py:37
+#: app/modules/commands/management.py:49 app/modules/commands/management.py:61
+#: app/modules/commands/management.py:73 app/modules/commands/management.py:87
 msgid "The max number of messages to get deleted."
 msgstr ""
 
-#: app/modules/commands/management.py:29
+#: app/modules/commands/management.py:32
+msgid "Delete messages sent by bots."
+msgstr ""
+
+#: app/modules/commands/management.py:44
+msgid "Delete messages sent by humans."
+msgstr ""
+
+#: app/modules/commands/management.py:56
+msgid "Delete messages that contain embeds."
+msgstr ""
+
+#: app/modules/commands/management.py:68
+msgid "Delete messages that contain images."
+msgstr ""
+
+#: app/modules/commands/management.py:81
+msgid "Delete messages that contain invite links."
+msgstr ""
+
+#: app/modules/commands/management.py:95
 msgid "Set a channel to receive moderation logs."
 msgstr ""
 
-#: app/modules/commands/management.py:34
+#: app/modules/commands/management.py:100
 msgid "The channel to receive logs."
 msgstr ""
 
@@ -149,12 +175,17 @@ msgstr ""
 msgid "Pick a category to browse available commands"
 msgstr ""
 
-#: app/services/commands/management.py:19
+#: app/services/commands/management.py:21
+#: app/services/commands/management.py:39
+#: app/services/commands/management.py:57
+#: app/services/commands/management.py:75
+#: app/services/commands/management.py:92
+#: app/services/commands/management.py:111
 #, python-format
 msgid "Deleted %(count)s messages."
 msgstr ""
 
-#: app/services/commands/management.py:34
+#: app/services/commands/management.py:126
 #, python-format
 msgid "Succesfully set %(channel_mention)s to receive moderation logs."
 msgstr ""
@@ -400,9 +431,13 @@ msgstr ""
 msgid "%(error_emoji)s Action Failed"
 msgstr ""
 
-#: app/utils/helpers/parse_time.py:52 app/utils/helpers/parse_time.py:59
-#: app/utils/helpers/parse_time.py:65
+#: app/utils/helpers/parse_time.py:50 app/utils/helpers/parse_time.py:57
+#: app/utils/helpers/parse_time.py:63
 msgid "Invalid duration format"
+msgstr ""
+
+#: app/utils/helpers/parse_time.py:67
+msgid "Duration must be greater than 0"
 msgstr ""
 
 #: tests/test_i18n.py:54
