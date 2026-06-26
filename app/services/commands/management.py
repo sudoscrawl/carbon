@@ -15,6 +15,12 @@ class ManagementService:
     async def _purge(self, interaction: discord.Interaction, count: int) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
+        if count <= 0 or count > 100:
+            embed = self.bot.embed_factory.error_embed(
+                _("The message count must be between 1 and 100.")
+            )
+            await interaction.followup.send(embed=embed, ephemeral=True)
+            return
         deleted = await interaction.channel.purge(limit=count)
 
         embed = self.bot.embed_factory.success_embed(
@@ -25,9 +31,16 @@ class ManagementService:
     async def _purge_bots(self, interaction: discord.Interaction, count: int) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
+        if count <= 0 or count > 100:
+            embed = self.bot.embed_factory.error_embed(
+                _("The message count must be between 1 and 100.")
+            )
+            await interaction.followup.send(embed=embed, ephemeral=True)
+            return
+
         deleted = 0
 
-        async for message in interaction.channel.history(limit=200):
+        async for message in interaction.channel.history(limit=500):
             if purge_checks.is_author_bot(message):
                 await message.delete()
                 deleted += 1
@@ -43,9 +56,16 @@ class ManagementService:
     async def _purge_humans(self, interaction: discord.Interaction, count: int) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
+        if count <= 0 or count > 100:
+            embed = self.bot.embed_factory.error_embed(
+                _("The message count must be between 1 and 100.")
+            )
+            await interaction.followup.send(embed=embed, ephemeral=True)
+            return
+
         deleted = 0
 
-        async for message in interaction.channel.history(limit=200):
+        async for message in interaction.channel.history(limit=500):
             if purge_checks.is_author_human(message):
                 await message.delete()
                 deleted += 1
@@ -61,9 +81,16 @@ class ManagementService:
     async def _purge_embeds(self, interaction: discord.Interaction, count: int) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
+        if count <= 0 or count > 100:
+            embed = self.bot.embed_factory.error_embed(
+                _("The message count must be between 1 and 100.")
+            )
+            await interaction.followup.send(embed=embed, ephemeral=True)
+            return
+
         deleted = 0
 
-        async for message in interaction.channel.history(limit=200):
+        async for message in interaction.channel.history(limit=500):
             if purge_checks.does_message_contain_embed(message):
                 await message.delete()
                 deleted += 1
@@ -79,8 +106,15 @@ class ManagementService:
     async def _purge_images(self, interaction: discord.Interaction, count: int) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
+        if count <= 0 or count > 100:
+            embed = self.bot.embed_factory.error_embed(
+                _("The message count must be between 1 and 100.")
+            )
+            await interaction.followup.send(embed=embed, ephemeral=True)
+            return
+
         deleted = 0
-        async for message in interaction.channel.history(limit=200):
+        async for message in interaction.channel.history(limit=500):
             if purge_checks.is_image_attached(message):
                 await message.delete()
                 deleted += 1
@@ -98,8 +132,15 @@ class ManagementService:
     ) -> None:
         assert isinstance(interaction.channel, discord.TextChannel)
         await interaction.response.defer(ephemeral=True)
+        if count <= 0 or count > 100:
+            embed = self.bot.embed_factory.error_embed(
+                _("The message count must be between 1 and 100.")
+            )
+            await interaction.followup.send(embed=embed, ephemeral=True)
+            return
+
         deleted = 0
-        async for message in interaction.channel.history(limit=200):
+        async for message in interaction.channel.history(limit=500):
             if purge_checks.is_invite_included(message):
                 await message.delete()
                 deleted += 1

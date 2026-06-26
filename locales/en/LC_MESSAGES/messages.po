@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: carbon-bot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-12 08:13+0530\n"
+"POT-Creation-Date: 2026-06-26 15:11+0530\n"
 "PO-Revision-Date: 2026-03-05 14:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
@@ -35,7 +35,7 @@ msgid "Delete messages in bulk."
 msgstr "Delete messages in bulk."
 
 #: app/modules/commands/management.py:20
-#, fuzzy, python-format
+#, fuzzy
 msgid "Delete any message type."
 msgstr "Delete any message type."
 
@@ -183,17 +183,26 @@ msgstr "📚 Help Menu"
 msgid "Pick a category to browse available commands"
 msgstr "Pick a category to browse available commands"
 
-#: app/services/commands/management.py:21
-#: app/services/commands/management.py:39
-#: app/services/commands/management.py:57
-#: app/services/commands/management.py:75
-#: app/services/commands/management.py:92
+#: app/services/commands/management.py:20
+#: app/services/commands/management.py:36
+#: app/services/commands/management.py:61
+#: app/services/commands/management.py:86
 #: app/services/commands/management.py:111
+#: app/services/commands/management.py:137
+msgid "The message count must be between 1 and 100."
+msgstr "The message count must be between 1 and 100."
+
+#: app/services/commands/management.py:27
+#: app/services/commands/management.py:52
+#: app/services/commands/management.py:77
+#: app/services/commands/management.py:102
+#: app/services/commands/management.py:126
+#: app/services/commands/management.py:152
 #, python-format
 msgid "Deleted %(count)s messages."
 msgstr "Deleted %(count)s messages."
 
-#: app/services/commands/management.py:126
+#: app/services/commands/management.py:167
 #, python-format
 msgid "Succesfully set %(channel_mention)s to receive moderation logs."
 msgstr "Succesfully set %(channel_mention)s to receive moderation logs."

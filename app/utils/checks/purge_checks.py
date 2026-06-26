@@ -27,8 +27,7 @@ def contains_invite(content: str) -> bool:
     invite_pattern = re.compile(
         r"(?:https?://)?(?:www\.)?discord(?:app)?\.(?:com|gg)/(?:invite/)?[a-zA-Z0-9_-]+"
     )
-    result = bool(invite_pattern.search(content))
-    return result
+    return bool(invite_pattern.search(content))
 
 
 def is_invite_included(message: discord.Message) -> bool:
