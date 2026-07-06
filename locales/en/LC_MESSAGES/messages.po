@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: carbon-bot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-07-06 20:27+0530\n"
+"POT-Creation-Date: 2026-07-06 21:42+0530\n"
 "PO-Revision-Date: 2026-03-05 14:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
@@ -78,6 +78,14 @@ msgstr "Set a channel to receive moderation logs."
 msgid "The channel to receive logs."
 msgstr "The channel to receive logs."
 
+#: app/modules/commands/misc.py:19
+msgid "Get avatar of a user."
+msgstr "Get avatar of a user."
+
+#: app/modules/commands/misc.py:23
+msgid "The user you want to view the avatar of. (Defaults to yourself)"
+msgstr "The user you want to view the avatar of. (Defaults to yourself)"
+
 #: app/modules/commands/moderation.py:19
 msgid "Kick someone from this server."
 msgstr "Kick someone from this server."
@@ -108,41 +116,41 @@ msgstr "Your reason to ban them. (Optional)"
 msgid "Unban someone from this server."
 msgstr "Unban someone from this server."
 
-#: app/modules/commands/moderation.py:67
+#: app/modules/commands/moderation.py:68
 msgid "Discord ID of the person you want to unban."
 msgstr "Discord ID of the person you want to unban."
 
-#: app/modules/commands/moderation.py:68
+#: app/modules/commands/moderation.py:70
 msgid "Your reason to unban them. (Optional)"
 msgstr "Your reason to unban them. (Optional)"
 
-#: app/modules/commands/moderation.py:83
+#: app/modules/commands/moderation.py:84
 #, fuzzy
 msgid "Timeout someone in this server."
 msgstr "Timeout someone in this server."
 
-#: app/modules/commands/moderation.py:89
+#: app/modules/commands/moderation.py:90
 msgid "The user you want to timeout."
 msgstr "The user you want to timeout."
 
-#: app/modules/commands/moderation.py:90
+#: app/modules/commands/moderation.py:92
 msgid "The duration for which you want to timeout them."
 msgstr "The duration for which you want to timeout them."
 
-#: app/modules/commands/moderation.py:91
+#: app/modules/commands/moderation.py:94
 msgid "Your reason to timeout them. (Optional)"
 msgstr "Your reason to timeout them. (Optional)"
 
-#: app/modules/commands/moderation.py:107
+#: app/modules/commands/moderation.py:109
 #, fuzzy
 msgid "Warn a member of this server."
 msgstr "Warn a member of this server."
 
-#: app/modules/commands/moderation.py:112
+#: app/modules/commands/moderation.py:114
 msgid "The user you want to warn."
 msgstr "The user you want to warn."
 
-#: app/modules/commands/moderation.py:113
+#: app/modules/commands/moderation.py:115
 msgid "Your reason to warn them. (Optional)"
 msgstr "Your reason to warn them. (Optional)"
 
@@ -250,6 +258,11 @@ msgstr "Deleted %(count)s messages."
 #, python-format
 msgid "Succesfully set %(channel_mention)s to receive moderation logs."
 msgstr "Succesfully set %(channel_mention)s to receive moderation logs."
+
+#: app/services/commands/misc.py:18
+#, python-format
+msgid "%(username)s's Avatar"
+msgstr "%(username)s's Avatar"
 
 #: app/services/commands/moderation.py:183
 #: app/services/commands/moderation.py:210
