@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-26 15:11+0530\n"
+"POT-Creation-Date: 2026-07-06 20:27+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,24 +75,68 @@ msgstr ""
 msgid "The channel to receive logs."
 msgstr ""
 
-#: app/modules/commands/moderation.py:17
+#: app/modules/commands/moderation.py:19
 msgid "Kick someone from this server."
 msgstr ""
 
-#: app/modules/commands/moderation.py:32
+#: app/modules/commands/moderation.py:25
+msgid "The user you want to kick."
+msgstr ""
+
+#: app/modules/commands/moderation.py:26
+msgid "Your reason to kick them. (Optional)"
+msgstr ""
+
+#: app/modules/commands/moderation.py:40
 msgid "Ban someone from this server."
 msgstr ""
 
+#: app/modules/commands/moderation.py:46
+msgid "The user you want to ban."
+msgstr ""
+
 #: app/modules/commands/moderation.py:47
+msgid "Your reason to ban them. (Optional)"
+msgstr ""
+
+#: app/modules/commands/moderation.py:61
 msgid "Unban someone from this server."
 msgstr ""
 
-#: app/modules/commands/moderation.py:62
+#: app/modules/commands/moderation.py:67
+msgid "Discord ID of the person you want to unban."
+msgstr ""
+
+#: app/modules/commands/moderation.py:68
+msgid "Your reason to unban them. (Optional)"
+msgstr ""
+
+#: app/modules/commands/moderation.py:83
 msgid "Timeout someone in this server."
 msgstr ""
 
-#: app/modules/commands/moderation.py:78
+#: app/modules/commands/moderation.py:89
+msgid "The user you want to timeout."
+msgstr ""
+
+#: app/modules/commands/moderation.py:90
+msgid "The duration for which you want to timeout them."
+msgstr ""
+
+#: app/modules/commands/moderation.py:91
+msgid "Your reason to timeout them. (Optional)"
+msgstr ""
+
+#: app/modules/commands/moderation.py:107
 msgid "Warn a member of this server."
+msgstr ""
+
+#: app/modules/commands/moderation.py:112
+msgid "The user you want to warn."
+msgstr ""
+
+#: app/modules/commands/moderation.py:113
+msgid "Your reason to warn them. (Optional)"
 msgstr ""
 
 #: app/services/commands/general.py:21
