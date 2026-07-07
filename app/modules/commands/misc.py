@@ -14,8 +14,12 @@ class Miscellaneous(commands.Cog):
 
     # AVATAR COMMAND
 
-    @app_commands.command(
+    avatar = app_commands.Group(
         name="avatar", description=app_commands.locale_str(_("Get avatar of a user."))
+    )
+
+    @avatar.command(
+        name="get", description=app_commands.locale_str(_("Get avatar of a user."))
     )
     @app_commands.guild_only()
     @app_commands.describe(
@@ -27,6 +31,36 @@ class Miscellaneous(commands.Cog):
         self, interaction: discord.Interaction, user: discord.Member | None = None
     ) -> None:
         await self.service._avatar(interaction, user)
+
+    @avatar.command(
+        name="guild",
+        description=app_commands.locale_str(_("Get the guild avatar of a user.")),
+    )
+    @app_commands.guild_only()
+    @app_commands.describe(
+        user=app_commands.locale_str(
+            _("The user you want to view the avatar of. (Defaults to yourself)")
+        )
+    )
+    async def _avatar_guild(
+        self, intercation: discord.Interaction, user: discord.Member | None = None
+    ) -> None:
+        await self.service._avatar_guild(intercation, user)
+
+    @avatar.command(
+        name="user",
+        description=app_commands.locale_str(_("Get the main avatar of a user.")),
+    )
+    @app_commands.guild_only()
+    @app_commands.describe(
+        user=app_commands.locale_str(
+            _("The user you want to view the avatar of. (Defaults to yourself)")
+        )
+    )
+    async def _avatar_user(
+        self, interaction: discord.Interaction, user: discord.Member | None = None
+    ) -> None:
+        await self.service._avatar_user(interaction, user)
 
 
 async def setup(bot: Carbon):
