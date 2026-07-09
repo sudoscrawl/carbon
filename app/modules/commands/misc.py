@@ -62,6 +62,18 @@ class Miscellaneous(commands.Cog):
     ) -> None:
         await self.service._avatar_user(interaction, user)
 
+    # SERVER INFO COMMAND
+
+    @app_commands.command(
+        name="serverinfo",
+        description=app_commands.locale_str(
+            _("Get information about the server in which this command is executed.")
+        ),
+    )
+    @app_commands.guild_only()
+    async def _serverinfo(self, interaction: discord.Interaction):
+        await self.service._serverinfo(interaction)
+
 
 async def setup(bot: Carbon):
     await bot.add_cog(Miscellaneous(bot))
