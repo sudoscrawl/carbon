@@ -95,3 +95,52 @@ class MiscService:
         embed.set_footer(text=f"ID: {guild.id}")
 
         await interaction.response.send_message(embed=embed)
+
+    async def _whois(
+        self, interaction: discord.Interaction, user: discord.Member | None = None
+    ) -> None:
+        assert isinstance(interaction.user, discord.Member)
+        user = user or interaction.user
+
+        embed = self.bot.embed_factory._build(user.mention)
+        embed.set_author(name=user.name, icon_url=user.display_avatar.url)
+        embed.set_thumbnail(url=user.display_avatar.url)
+        embed.set_footer(text=f"ID: {user.id}")
+
+        if user.joined_at is not None:
+            joined = user.joined_at.strftime("%a, %b %d, %Y %I:%M %p")
+        else:
+            joined = _("Unknown")
+
+        created = user.created_at.strftime("%a, %b %d, %Y %I:%M %p")
+
+        embed.add_field_i18n(_("Joined this server"), joined)
+        embed.add_field_i18n(_("Joined Discord"), created)
+
+        roles = [role.name for role in user.roles[1:]]
+        roles_list = ", ".join(roles) if roles else _("No roles")
+
+        embed.add_field_i18n(_("Roles"), roles_list)
+
+        perms = user.guild_permissions
+        mapping = {
+            "administrator": "Administrator",
+            "manage_guild": "Manage Server",
+            "manage_roles": "Manage Roles",
+            "manage_channels": "Manage Channels",
+            "manage_messages": "Manage Messages",
+            "manage_webhooks": "Manage Webhooks",
+            "manage_nicknames": "Manage Nicknames",
+            "manage_emojis_and_stickers": "Manage Emojis and Stickers",
+            "kick_members": "Kick Members",
+            "ban_members": "Ban Members",
+            "mention_everyone": "Mention Everyone",
+            "moderate_members": "Timeout Members",
+        }
+        key_perms = [name for attr, name in mapping.items() if getattr(perms, attr)]
+        if not key_perms:
+            key_perms = ["None"]
+
+        embed.add_field_i18n(_("Key Permissions"), ", ".join(key_perms), inline=False)
+
+        await interaction.response.send_message(embed=embed)

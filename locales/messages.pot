@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-07-06 21:42+0530\n"
+"POT-Creation-Date: 2026-07-10 18:12+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,12 +75,33 @@ msgstr ""
 msgid "The channel to receive logs."
 msgstr ""
 
-#: app/modules/commands/misc.py:19
+#: app/modules/commands/misc.py:18 app/modules/commands/misc.py:22
 msgid "Get avatar of a user."
 msgstr ""
 
-#: app/modules/commands/misc.py:23
+#: app/modules/commands/misc.py:27 app/modules/commands/misc.py:42
+#: app/modules/commands/misc.py:57
 msgid "The user you want to view the avatar of. (Defaults to yourself)"
+msgstr ""
+
+#: app/modules/commands/misc.py:37
+msgid "Get the guild avatar of a user."
+msgstr ""
+
+#: app/modules/commands/misc.py:52
+msgid "Get the main avatar of a user."
+msgstr ""
+
+#: app/modules/commands/misc.py:70
+msgid "Get information about the server in which this command is executed."
+msgstr ""
+
+#: app/modules/commands/misc.py:80
+msgid "Get information about a user."
+msgstr ""
+
+#: app/modules/commands/misc.py:83
+msgid "User to inspect. (Defaults to yourself)"
 msgstr ""
 
 #: app/modules/commands/moderation.py:19
@@ -251,9 +272,63 @@ msgstr ""
 msgid "Succesfully set %(channel_mention)s to receive moderation logs."
 msgstr ""
 
-#: app/services/commands/misc.py:18
+#: app/services/commands/misc.py:20
 #, python-format
 msgid "%(username)s's Avatar"
+msgstr ""
+
+#: app/services/commands/misc.py:36
+msgid "The user does not have a guild avatar."
+msgstr ""
+
+#: app/services/commands/misc.py:43
+#, python-format
+msgid "%(username)s's Guild Avatar"
+msgstr ""
+
+#: app/services/commands/misc.py:58
+#, python-format
+msgid "%(username)s's Main Avatar"
+msgstr ""
+
+#: app/services/commands/misc.py:84
+msgid "Owned By"
+msgstr ""
+
+#: app/services/commands/misc.py:85
+msgid "Member Count"
+msgstr ""
+
+#: app/services/commands/misc.py:87
+msgid "Created At"
+msgstr ""
+
+#: app/services/commands/misc.py:91
+msgid "Channels"
+msgstr ""
+
+#: app/services/commands/misc.py:94 app/services/commands/misc.py:125
+msgid "Roles"
+msgstr ""
+
+#: app/services/commands/misc.py:111
+msgid "Unknown"
+msgstr ""
+
+#: app/services/commands/misc.py:115
+msgid "Joined this server"
+msgstr ""
+
+#: app/services/commands/misc.py:116
+msgid "Joined Discord"
+msgstr ""
+
+#: app/services/commands/misc.py:123
+msgid "No roles"
+msgstr ""
+
+#: app/services/commands/misc.py:146
+msgid "Key Permissions"
 msgstr ""
 
 #: app/services/commands/moderation.py:183

@@ -74,6 +74,19 @@ class Miscellaneous(commands.Cog):
     async def _serverinfo(self, interaction: discord.Interaction):
         await self.service._serverinfo(interaction)
 
+    @app_commands.command(
+        name="whois",
+        description=app_commands.locale_str(_("Get information about a user.")),
+    )
+    @app_commands.guild_only()
+    @app_commands.describe(
+        user=app_commands.locale_str(_("User to inspect. (Defaults to yourself)"))
+    )
+    async def _whois(
+        self, interaction: discord.Interaction, user: discord.Member | None = None
+    ) -> None:
+        await self.service._whois(interaction, user)
+
 
 async def setup(bot: Carbon):
     await bot.add_cog(Miscellaneous(bot))
