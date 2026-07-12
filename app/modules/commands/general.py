@@ -37,11 +37,24 @@ class General(commands.Cog):
     async def about(self, interaction: discord.Interaction) -> None:
         await self.service._about(interaction)
 
+    # -- help autocomplete --
+    async def help_autocomplete(
+        self, interaction: discord.Interaction, current: str
+    ) -> list:
+        commands = [cmd.qualified_name for cmd in self.bot.tree.walk_commands()]
+
+        return [
+            app_commands.Choice(name=cmd, value=cmd)
+            for cmd in commands
+            if current.lower() in cmd.lower()
+        ][:25]
+
     # -- help command --
     @app_commands.command(
         name="help", description=locale_str(_("Get a list of all my commands."))
     )
     @app_commands.guild_only()
+    @app_commands.autocomplete(command=help_autocomplete)
     @app_commands.describe(command="The command to get help for.")
     async def help(
         self, interaction: discord.Interaction, command: str | None = None
