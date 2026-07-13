@@ -60,20 +60,14 @@ class GeneralService:
                 | None
             ) = None
 
-            # Check for regular commands first
-            cmd_obj = self.bot.get_command(command)
-
-            # If not found, check for app commands
-            if not cmd_obj:
-                for app_cmd in self.bot.tree.get_commands():
-                    if app_cmd.name == command:
-                        cmd_obj = app_cmd
-                        break
+            for app_cmd in self.bot.tree.get_commands():
+                if app_cmd.name == command:
+                    cmd_obj = app_cmd
+                    break
 
             if not cmd_obj:
-                await interaction.response.send_message(
-                    _("Command not found."), ephemeral=True
-                )
+                err_embed = self.bot.embed_factory.error_embed(_("Command not found."))
+                await interaction.response.send_message(embed=err_embed, ephemeral=True)
                 return
 
             embed = self.bot.embed_factory._build(color=JUNGLE_GREEN)
