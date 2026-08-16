@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 EMOJIS = {
     "Moderation": "🛡️",
-    "Misc": "📦",
+    "Miscellaneous": "📦",
     "General": "⭐",
     "Management": "🔨",
 }
@@ -20,6 +20,8 @@ EMOJIS = {
 DESCRIPTIONS = {
     "Moderation": _("Commands for managing members and server behavior."),
     "General": _("Commands for basic utility."),
+    "Management": _("Commands for managing carbon configurations for this server."),
+    "Miscellaneous": _("Miscellaneous set of commands."),
 }
 
 
