@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.22
-FROM python:3.12.11-alpine3.22 AS base
+FROM python:3.14.5-alpine3.22 AS base
 
 ENV PYTHONDONTWRITEBYTECODE=1\
     PYTHONUNBUFFERED=1
