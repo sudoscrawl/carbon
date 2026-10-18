@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: carbon-bot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-07-10 18:12+0530\n"
+"POT-Creation-Date: 2026-09-23 00:12+0530\n"
 "PO-Revision-Date: 2026-03-05 14:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
@@ -26,7 +26,7 @@ msgstr "Get an invite link for Carbon."
 msgid "Get information about Carbon."
 msgstr "Get information about Carbon."
 
-#: app/modules/commands/general.py:42
+#: app/modules/commands/general.py:54
 msgid "Get a list of all my commands."
 msgstr "Get a list of all my commands."
 
@@ -101,7 +101,7 @@ msgstr "Get the main avatar of a user."
 msgid "Get information about the server in which this command is executed."
 msgstr "Get information about the server in which this command is executed."
 
-#: app/modules/commands/misc.py:80
+#: app/modules/commands/misc.py:79
 #, fuzzy
 msgid "Get information about a user."
 msgstr "Get information about a user."
@@ -213,50 +213,50 @@ msgstr "Users"
 msgid "Last Restart"
 msgstr "Last Restart"
 
-#: app/services/commands/general.py:75
+#: app/services/commands/general.py:69
 msgid "Command not found."
 msgstr "Command not found."
 
-#: app/services/commands/general.py:80
+#: app/services/commands/general.py:74
 msgid "Command Information"
 msgstr "Command Information"
 
-#: app/services/commands/general.py:93
+#: app/services/commands/general.py:87
 #, fuzzy
 msgid "Description"
 msgstr "Description"
 
-#: app/services/commands/general.py:94
+#: app/services/commands/general.py:88
 #, fuzzy, python-format
 msgid "> %(description)s"
 msgstr "> %(description)s"
 
-#: app/services/commands/general.py:95
+#: app/services/commands/general.py:89
 msgid "No description."
 msgstr "No description."
 
-#: app/services/commands/general.py:104
+#: app/services/commands/general.py:98
 msgid "Aliases"
 msgstr "Aliases"
 
-#: app/services/commands/general.py:104
+#: app/services/commands/general.py:98
 #, python-format
 msgid "> %(aliases)s"
 msgstr "> %(aliases)s"
 
-#: app/services/commands/general.py:127
+#: app/services/commands/general.py:121
 msgid "Usage"
 msgstr "Usage"
 
-#: app/services/commands/general.py:134 app/ui/views/help_view.py:99
+#: app/services/commands/general.py:128 app/ui/views/help_view.py:101
 msgid "Use `/help <command>` to show information about a command."
 msgstr "Use `/help <command>` to show information about a command."
 
-#: app/services/commands/general.py:137 app/ui/views/help_view.py:102
+#: app/services/commands/general.py:131 app/ui/views/help_view.py:104
 msgid "📚 Help Menu"
 msgstr "📚 Help Menu"
 
-#: app/services/commands/general.py:138 app/ui/views/help_view.py:103
+#: app/services/commands/general.py:132 app/ui/views/help_view.py:105
 msgid "Pick a category to browse available commands"
 msgstr "Pick a category to browse available commands"
 
@@ -321,29 +321,29 @@ msgstr "Created At"
 msgid "Channels"
 msgstr "Channels"
 
-#: app/services/commands/misc.py:94 app/services/commands/misc.py:125
+#: app/services/commands/misc.py:94 app/services/commands/misc.py:123
 msgid "Roles"
 msgstr "Roles"
 
-#: app/services/commands/misc.py:111
+#: app/services/commands/misc.py:113
 msgid "Unknown"
 msgstr "Unknown"
 
-#: app/services/commands/misc.py:115
+#: app/services/commands/misc.py:117
 #, fuzzy
 msgid "Joined this server"
 msgstr "Joined this server"
 
-#: app/services/commands/misc.py:116
+#: app/services/commands/misc.py:118
 msgid "Joined Discord"
 msgstr "Joined Discord"
 
-#: app/services/commands/misc.py:123
+#: app/services/commands/misc.py:121
 #, fuzzy
 msgid "No roles"
 msgstr "No roles"
 
-#: app/services/commands/misc.py:146
+#: app/services/commands/misc.py:144
 #, fuzzy
 msgid "Key Permissions"
 msgstr "Key Permissions"
@@ -455,40 +455,49 @@ msgstr "Commands for managing members and server behavior."
 msgid "Commands for basic utility."
 msgstr "Commands for basic utility."
 
-#: app/ui/views/help_view.py:34
+#: app/ui/views/help_view.py:23
+#, fuzzy
+msgid "Commands for managing carbon configurations for this server."
+msgstr "Commands for managing carbon configurations for this server."
+
+#: app/ui/views/help_view.py:24
+msgid "Miscellaneous set of commands."
+msgstr "Miscellaneous set of commands."
+
+#: app/ui/views/help_view.py:36
 msgid "Invite"
 msgstr "Invite"
 
-#: app/ui/views/help_view.py:41
+#: app/ui/views/help_view.py:43
 msgid "Support Server"
 msgstr "Support Server"
 
-#: app/ui/views/help_view.py:61
+#: app/ui/views/help_view.py:63
 msgid "Home"
 msgstr "Home"
 
-#: app/ui/views/help_view.py:62
+#: app/ui/views/help_view.py:64
 msgid "Return to the main help menu."
 msgstr "Return to the main help menu."
 
-#: app/ui/views/help_view.py:88
+#: app/ui/views/help_view.py:90
 msgid "Select a category"
 msgstr "Select a category"
 
-#: app/ui/views/help_view.py:112
+#: app/ui/views/help_view.py:114
 msgid "Cog not found."
 msgstr "Cog not found."
 
-#: app/ui/views/help_view.py:117
+#: app/ui/views/help_view.py:119
 #, fuzzy, python-format
 msgid "%(emoji)s %(selection)s Commands"
 msgstr "%(emoji)s %(selection)s Commands"
 
-#: app/ui/views/help_view.py:133
+#: app/ui/views/help_view.py:135
 msgid "No description provided."
 msgstr "No description provided."
 
-#: app/ui/views/help_view.py:139
+#: app/ui/views/help_view.py:141
 msgid ""
 "\n"
 "\n"
