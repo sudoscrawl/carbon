@@ -8,7 +8,7 @@ from app.i18n.marker import _
 from app.ui.views.help_view import HelpView
 from app.ui.views.invite_view import InviteView
 from app.utils.consts.branding import CARBON_LOGO, JUNGLE_GREEN
-
+from app import __version__
 
 class GeneralService:
     def __init__(self, bot: Carbon) -> None:
@@ -33,6 +33,7 @@ class GeneralService:
         await interaction.response.send_message(embed=embed, view=view)
 
     async def _about(self, interaction: discord.Interaction) -> None:
+        version = __version__
         uptime = self.bot.start_time.diff_for_humans()
         server_count = len(self.bot.guilds)
         user_count = sum(guild.member_count or 0 for guild in self.bot.guilds)
@@ -40,6 +41,7 @@ class GeneralService:
         embed = self.bot.embed_factory._build(color=JUNGLE_GREEN)
         embed.set_title_i18n(_("%(emoji)s About Carbon"), emoji=CARBON_LOGO)
 
+        embed.add_field_i18n(_("Version"), version)
         embed.add_field_i18n(_("Servers"), str(server_count))
         embed.add_field_i18n(_("Users"), str(user_count))
         embed.add_field_i18n(_("Last Restart"), f"`{uptime}`")
