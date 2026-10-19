@@ -1,6 +1,6 @@
 [project]
 name = "carbon"
-version = "1.0.01"
+version = "0.1.03"
 description = "Handle your server effortlessly."
 readme = "README.md"
 authors = [
