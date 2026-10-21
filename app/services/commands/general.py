@@ -8,7 +8,7 @@ from app.i18n.marker import _
 from app.ui.views.help_view import HelpView
 from app.ui.views.invite_view import InviteView
 from app.utils.consts.branding import CARBON_LOGO, JUNGLE_GREEN
-from app import __version__
+from app._version import __version__
 
 class GeneralService:
     def __init__(self, bot: Carbon) -> None:
