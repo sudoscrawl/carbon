@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.22
+# syntax=docker/dockerfile:1.28
 FROM python:3.12.11-alpine3.22 AS base
 
 ENV PYTHONDONTWRITEBYTECODE=1\
